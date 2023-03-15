@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- namespace 名称空间 是.java接口文件 的全路径名！ -->
+<mapper namespace="com.xencio.mapper.UserMapper">
+
+    <!--    resultMap-->
+    <!--    <resultMap id="testkRM" type="com.abc.testk">-->
+    <!--    <id column="id" property="id"/></resultMap>-->
+    <!--        <result column="name" property="nameJava"/></resultMap>-->
+
+    <select id="save" resultType="com.xencio.entity.User">
+        insert into User(id,type,name) values(#{id},#{type}),#{name});
+    </select>
+
+    <select id="delete" resultType="com.xencio.entity.User">
+        delete from user where id=#{id};
+    </select>
+
+    <select id="update" resultType="com.xencio.entity.User">
+        update user set type=#{type},name=#{name};
+    </select>
+
+    <select id="getById" resultType="com.xencio.entity.User">
+        select * from user where id=#{id};
+
+    </select>
+    <select id="selectAll" resultType="com.xencio.entity.User">
+        select * from user;
+    </select>
+
+
+</mapper>
