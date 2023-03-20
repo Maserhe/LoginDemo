@@ -7,14 +7,10 @@
 <!-- namespace 名称空间 是.java接口文件 的全路径名！ -->
 <mapper namespace="com.xencio.mapper.UserMapper">
 
-    <!--    resultMap-->
-    <!--    <resultMap id="testkRM" type="com.abc.testk">-->
-    <!--    <id column="id" property="id"/></resultMap>-->
-    <!--        <result column="name" property="nameJava"/></resultMap>-->
 
-    <select id="save" resultType="com.xencio.entity.User">
-        insert into User(id,type,name) values(#{id},#{type}),#{name});
-    </select>
+    <insert id="save"  parameterType="com.xencio.entity.User">
+        insert into User(id, username, password, tel, type) values(#{id},#{username},#{password}, #{tel}, #{type});
+    </insert>
 
     <select id="delete" resultType="com.xencio.entity.User">
         delete from user where id=#{id};
@@ -26,10 +22,15 @@
 
     <select id="getById" resultType="com.xencio.entity.User">
         select * from user where id=#{id};
-
     </select>
+
     <select id="selectAll" resultType="com.xencio.entity.User">
         select * from user;
+    </select>
+
+
+    <select id="getUserByUsername" resultType="com.xencio.entity.User">
+        select * from user where username=#{username};
     </select>
 
 

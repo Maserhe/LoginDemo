@@ -3,10 +3,11 @@ package com.xencio.service.impl;
 import com.xencio.entity.User;
 import com.xencio.mapper.UserMapper;
 import com.xencio.service.UserService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,8 +18,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void save(User user) {
-
+    public int save(User user) {
+       return userMapper.save(user);
     }
 
     @Override
@@ -39,5 +40,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> selectAll() {
         return null;
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userMapper.getUserByUsername(username);
     }
 }

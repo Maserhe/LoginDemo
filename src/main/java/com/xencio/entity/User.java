@@ -4,18 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User implements Serializable {
 
-    Integer id;
+    private static final long serialVersionUID = 1L;
+
+    Long id;
 
     String username;
 
     String password;
 
-    String salt;
-
     String  tel;
+
+    Integer type;
 }

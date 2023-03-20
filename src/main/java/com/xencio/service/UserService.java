@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserService {
 
 
-    public void save(User user); // 增
+    public int save(User user); // 增
 
     public void delete(Integer id); // 删
 
@@ -16,4 +16,8 @@ public interface UserService {
     public User getById(Integer id); // 查
 
     public List<User> selectAll(); // 查全部
+
+    User getUserByUsername(String username);
+
+
 }
